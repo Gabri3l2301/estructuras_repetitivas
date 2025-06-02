@@ -13,27 +13,31 @@ int main() {
     do {
         cout << "Ingrese la nota del estudiante: ";
         cin >> nota;
-        suma += nota;
-        total++;
 
-        if (nota >= 10.5){
-            aprobados++;
+        if (nota < 0 || nota > 20) {
+            cout << "La nota debe estar entre 0 y 20." << endl;
         }else{
-            desaprobados++;
+            suma += nota;
+            total++;
+            if (nota >= 10.5){
+                aprobados++;
+            }else{
+                desaprobados++;
+            }
         }
         cout << "¿Desea ingresar otra nota? (S/N): ";
         cin >> continuar;
-    }while (continuar == 'S' || continuar == 's');
+    } while (continuar == 'S' || continuar == 's');
 
     if (total > 0) {
-    promedio = suma / total;
-    }else{
-    promedio = 0;
+        promedio = suma / total;
+        cout << "Cantidad de estudiantes: " << total << endl;
+        cout << "Cantidad de aprobados: " << aprobados << endl;
+        cout << "Cantidad de desaprobados: " << desaprobados << endl;
+        cout << "Promedio del salón: " << promedio << endl;
+    } else {
+        cout << "No se ingresaron notas" << endl;
     }
-
-    cout << "Cantidad de aprobados: " << aprobados << endl;
-    cout << "Cantidad de desaprobados: " << desaprobados << endl;
-    cout << "Promedio del salón: " << promedio << endl;
 
     return 0;
 }
